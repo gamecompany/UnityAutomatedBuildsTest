@@ -30,6 +30,8 @@ public class AutomaticBuilds
     {
         Debug.LogFormat("Started '{0}' at {1}", buildName, System.DateTime.Now);
 
+        System.IO.Directory.CreateDirectory(outputPathName());
+
         string message = BuildPipeline.BuildPlayer(
             scenesToIncludeInReleaseBuild(),
             outputPathAndFilename(extension),
