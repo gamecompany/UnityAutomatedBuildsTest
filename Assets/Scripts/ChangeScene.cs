@@ -9,6 +9,8 @@ public class ChangeScene : MonoBehaviour, IPointerClickHandler
 
     public void OnPointerClick(PointerEventData eventData)
     {
+        int unassignedLocalVariable;
+
         SceneManager.LoadScene(sceneToLoad);
     }
 }

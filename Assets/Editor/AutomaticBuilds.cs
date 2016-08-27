@@ -1,8 +1,6 @@
 ﻿using UnityEngine;
 using UnityEditor;
 
-#warning This is just a test warning.
-
 public class AutomaticBuilds 
 {
     public static string[] scenesToIncludeInReleaseBuild()
@@ -15,8 +13,6 @@ public class AutomaticBuilds
 
     public static string outputPathName()
     {
-        int unassigned;
-
         return "Builds";
     }
 
