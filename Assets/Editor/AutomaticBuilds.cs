@@ -80,7 +80,7 @@ public class AutomaticBuilds
             scenesToIncludeInReleaseBuild(),
 			outputPathAndFilename(targetPlatform),
             targetPlatform,
-            BuildOptions.ShowBuiltPlayer | BuildOptions.AutoRunPlayer);
+            BuildOptions.ShowBuiltPlayer);
 
         if (string.IsNullOrEmpty(message))
         {
