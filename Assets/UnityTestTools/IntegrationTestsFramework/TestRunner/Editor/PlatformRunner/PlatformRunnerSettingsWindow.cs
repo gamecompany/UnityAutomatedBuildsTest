@@ -198,7 +198,7 @@ namespace UnityTest.IntegrationTests
 
         public static List<string> GetScenesWithTestComponents(List<string> allScenes)
         {
-            List<Object> results = EditorReferencesUtil.FindScenesWhichContainAsset("TestComponent.cs");	
+            List<Object> results = EditorReferencesUtil.FindScenesWhichContainAsset("TestComponent.cs");    
             List<string> integrationTestScenes = new List<string>();
             
             foreach (Object obj in results) {
@@ -250,7 +250,7 @@ namespace UnityTest.IntegrationTests
                 }
             }
 
-			EditorGUI.EndDisabledGroup();
+            EditorGUI.EndDisabledGroup();
 
             if (EditorGUI.EndChangeCheck())
             {
