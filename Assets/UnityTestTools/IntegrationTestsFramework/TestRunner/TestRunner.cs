@@ -309,8 +309,11 @@ namespace UnityTest
             TestSceneNumber += 1;
             string testScene = m_Configurator.GetIntegrationTestScenes(TestSceneNumber);
 
-            if (testScene != null)
-                SceneManager.LoadScene(Path.GetFileNameWithoutExtension(testScene));
+			if (testScene != null)
+			{
+				// We need to replace "\" from the path for "/" so the android platform can use the GetFileNameWithoutExtension method properly
+				SceneManager.LoadScene (Path.GetFileNameWithoutExtension (testScene.Replace("\\", "/")));
+			}
             else
             {
                 TestRunnerCallback.AllScenesFinished();
