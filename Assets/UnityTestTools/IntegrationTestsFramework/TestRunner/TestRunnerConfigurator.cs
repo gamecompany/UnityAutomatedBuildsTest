@@ -1,4 +1,5 @@
-#if !UNITY_METRO && !UNITY_WEBPLAYER && (UNITY_PRO_LICENSE || !(UNITY_ANDROID || UNITY_IPHONE))
+// Clinton - we need UTT sockets on Android; Pro shouldn't matter any more
+#if !UNITY_METRO && !UNITY_WEBPLAYER // && (UNITY_PRO_LICENSE || !(UNITY_ANDROID || UNITY_IPHONE))
 #define UTT_SOCKETS_SUPPORTED
 #endif
 using System;
