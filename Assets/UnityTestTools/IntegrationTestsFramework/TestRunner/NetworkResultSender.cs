@@ -1,4 +1,5 @@
-#if !UNITY_METRO && (UNITY_PRO_LICENSE || !(UNITY_ANDROID || UNITY_IPHONE))
+// Clinton: In Unity 5.3, this seems to work on Android (and hopefully, iOS)
+#if !UNITY_METRO // && (UNITY_PRO_LICENSE || !(UNITY_ANDROID || UNITY_IPHONE))
 #define UTT_SOCKETS_SUPPORTED
 #endif
 using System;
