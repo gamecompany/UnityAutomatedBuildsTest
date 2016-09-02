@@ -7,6 +7,8 @@ public class AutomaticBuilds
 {
 	const string k_TargetPlatformParam = "-targetPlatform=";
 	const string k_ResultFilePathParam = "-resultFilePath=";
+    const string k_BuildAndRun         = "-buildAndRun";
+    const string k_Recompile           = "-recompile";
 	static int errorCodeBadPlatform = 3;
 	
     public static string[] scenesToIncludeInReleaseBuild()
@@ -80,7 +82,7 @@ public class AutomaticBuilds
             scenesToIncludeInReleaseBuild(),
 			outputPathAndFilename(targetPlatform),
             targetPlatform,
-            BuildOptions.ShowBuiltPlayer);
+            GetBuildOptions());
 
         if (string.IsNullOrEmpty(message))
         {
@@ -117,6 +119,27 @@ public class AutomaticBuilds
 		}
 		return buildTarget;
 	}
+
+    // Checks the command line for build options
+    private static BuildOptions GetBuildOptions()
+    {
+        BuildOptions options = BuildOptions.None;
+
+        foreach (var arg in Environment.GetCommandLineArgs())
+        {
+            if (arg.ToLower().StartsWith(k_BuildAndRun.ToLower()))
+            {
+                options |= BuildOptions.AutoRunPlayer;
+            }
+
+            if (arg.ToLower().StartsWith(k_Recompile.ToLower()))
+            {
+                options |= BuildOptions.BuildScriptsOnly;
+            }
+        }
+
+        return options;
+    }
 
     [MenuItem("Builds/Mac")]
     public static void BuildForMac() 
